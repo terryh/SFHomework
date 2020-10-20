@@ -1,4 +1,7 @@
-# Homework for Software Engineering
+
+[![Build Status](https://travis-ci.org/terryh/SFHomework.svg?branch=main)](https://travis-ci.org/terryh/SFHomework)
+
+## Homework for Software Engineering
 
 * Team chosen language C#
 
@@ -40,7 +43,7 @@
 
     ```
 
-# C# test tool
+## C# test tool
 
 reference https://docs.microsoft.com/zh-tw/dotnet/core/testing/?pivots=mstest
 
@@ -48,13 +51,13 @@ reference https://docs.microsoft.com/zh-tw/dotnet/core/testing/?pivots=mstest
 * XUnit
 * Nuint
 
-# C# test coverage tool
+## C# test coverage tool
 
 reference https://docs.microsoft.com/zh-tw/dotnet/core/testing/unit-testing-code-coverage?tabs=linux
 
 * coverage
 
-# Team members
+## Team members
 
 * 游X翰 4094W007
 * 張X文 4094W010
