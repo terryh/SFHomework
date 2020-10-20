@@ -3,28 +3,29 @@ using System.Collections.Generic;
 
 namespace Homework
 {
-
+    /// <summary>
+    /// 學生
+    /// </summary>
     public class Student
     {
-    //     public string ID { get; set; }
-    //     public string Name { get; set; }
+        // 學號
+        public readonly string Id;
+        // 姓名
+        public readonly string Name;
 
-    //     public Student() { }
-    public string ID;
-    public string Name;
-
-    public Student(string id, string name)
+        public Student(string id, string name)
         {
-
-            ID = id;
+            Id = id;
             Name = name;
         }
     }
 
     public class StudentFind
     {
-        List<Student> _students = new List<Student>() ;
-        public StudentFind () {
+        private readonly List<Student> _students;
+
+        public StudentFind()
+        {
             _students = new List<Student>
             {
                 new Student("4094W007", "Nick"),
@@ -35,15 +36,20 @@ namespace Homework
             };
         }
 
-        public string Find(string name) 
+        /// <summary>
+        /// 用名稱查詢學生學號
+        /// 
+        ///     受測試的 Function
+        /// </summary>
+        /// <param name="name">要查找的名字</param>
+        /// <returns>返回查找的學生學號</returns>
+        public string Find(string name)
         {
-            // throw new NotImplementedException("No implemented");
-            
-            foreach(var item in _students)
+            foreach (var item in _students)
             {
-                if (item.Name == name) 
+                if (item.Name == name)
                 {
-                    return item.ID;
+                    return item.Id;
                 }
             }
             return "";
