@@ -1,0 +1,18 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+.*
+!.jshintrc
+!.babelrc
+!.editorconfig
+!.eslintignore
+!.eslintrc.js
+!.gitignore
+
+[Oo]bj
+[Bb]in
+[Dd]ebug
+[Bb]uild/
+
+*.pyc
+tmp
+.DS_Store
+node_modules
