@@ -1,4 +1,4 @@
-# Homework2 
+## Homework2 
 we use Homework1's code Graph 
 
 ```csharp
@@ -63,11 +63,11 @@ namespace Homework
 
 ```
 
-# Graph
+## Graph
 
 ![alt Graph](./graph.svg)
 
-# Edge Coverage 
+## Edge Coverage 
 
 * [A B]
 * [B C]
@@ -79,7 +79,7 @@ namespace Homework
 * [E G]
 
 
-# Edge-Pair Coverage 
+## Edge-Pair Coverage 
 
 * [A B C]
 * [B C D]
@@ -88,7 +88,7 @@ namespace Homework
 * [D F H]
 * [D E G]
   
-# Test Paths
+## Test Paths
 
 * [A B C D E G]
 * [A B C D F B C D F H]
