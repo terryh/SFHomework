@@ -2,7 +2,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
 <link href="../static/main.css" rel="stylesheet" />
 
-## Homework2 (第二組)
+## Homework1 (第二組)
 
 ### 組員
 
@@ -11,10 +11,6 @@
 * 李X成 4094W011
 * 何X禹 4094W012
 * 黃X賢 4094W008
-
-::::columns
-
-:::column
 
 程式資料
 ``` {.cs .numberLines}
@@ -40,10 +36,10 @@ _students = new List<Student>
 ```
 程式邏輯
 ```{.cs .numberLines startFrom="1"}
+
 /// 找到，返回查找的學生學號
 /// 沒找到，返回空字串
-public string Find(string name, 
-    List<Student> students)
+public string Find(string name, List<Student> students)
 {
     foreach (var item in students)
     {
@@ -55,50 +51,23 @@ public string Find(string name,
     return "";
 }
 ```
-:::
 
-:::column
-## Graph
+## Test Case  
 
-<!--![alt Graph](./graph.svg) { width: 200px; }-->
-<img style="width: 320px;padding: 50px;" alt="" src="./graph.svg" />
-:::
+程式邏輯 (line 4 ~ 14)
 
-::::
+### test case 1 (line 4 ~ 12)
 
-## Edge Coverage 
+1. input values: "Terry"
+2. expected result: "4094W008"
+3. test program's result: "4094W008"
 
-* [A B]
-* [B C]
-* [C D]
-* [D E]
-* [D F]
-* [F B]
-* [E G]
-* [B H]
+Line coverage:  4 5 6 7 8 9 10 11 12 
 
-<p class="pagebreak" />
+### test case 2 (line 13 ~ 14)
 
-## Edge-Pair Coverage 
+1. input values: "John" 
+2. expected result: ""
+3. test program's result: ""
 
-* [A B C]
-* [A B H]
-* [B C D]
-* [C D E]
-* [C D F]
-* [D E G]
-* [D F B]
-* [F B C]
-* [F B H]
-  
-## Test Paths
-
-none loop
-
-* [A B H]
-* [A B C D E G]
-
-loop
-
-* [A B C D F B C D E G]
-* [A B C D F B H]
+Line coverage: 13 14

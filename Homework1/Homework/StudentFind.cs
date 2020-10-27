@@ -22,30 +22,16 @@ namespace Homework
 
     public class StudentFind
     {
-        private readonly List<Student> _students;
-
-        public StudentFind()
-        {
-            _students = new List<Student>
-            {
-                new Student("4094W007", "Nick"),
-                new Student("4094W010", "Aven"),
-                new Student("4094W011", "Totti"),
-                new Student("4094W012", "Jeff"),
-                new Student("4094W008", "Terry"),
-            };
-        }
-
         /// <summary>
         /// 用名稱查詢學生學號
-        /// 
+        ///
         ///     受測試的 Function
         /// </summary>
         /// <param name="name">要查找的名字</param>
         /// <returns>返回查找的學生學號</returns>
-        public string Find(string name)
+        public string Find(string name, List<Student> students)
         {
-            foreach (var item in _students)
+            foreach (var item in students)
             {
                 if (item.Name == name)
                 {
