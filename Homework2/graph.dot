@@ -3,16 +3,29 @@ digraph G
 	node [style="filled", fillcolor="mediumslateblue"]
 	edge [arrowhead="vee"]
 
+
 	A [label="A\nname"]
-	A -> B [label=" foreach _students"]
+
+	A -> B [label=" foreach students"]
 	B -> C [label=" var item"]
 	C -> D [label=" ? Name == name"]
 	D -> E [label=" True"]
 	D -> F [label=" False"]
 
-	F -> B [label=" if have next student"]
+	F -> B [label="   if have next student"]
 
 	E -> G [label=" return Id"]
 	
-	F -> H [label=" return empty string"]
+	B -> H [label=" no more student\n  return empty string"]
+	
+	H,G [shape=doublecircle]
+
+	{
+		rank = same; 
+		edge [style=invis];
+		H; G;
+		G -> H
+		rankdir = LR;
+	}
 }
+

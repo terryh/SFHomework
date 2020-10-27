@@ -1,94 +1,104 @@
-## Homework2 
-we use Homework1's code Graph 
+<!--<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">-->
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+<link href="../static/main.css" rel="stylesheet" />
 
-```csharp
-using System;
-using System.Collections.Generic;
+## Homework2 (第二組)
 
-namespace Homework
+### 組員
+
+* 游X翰 4094W007
+* 張X文 4094W010
+* 李X成 4094W011
+* 何X禹 4094W012
+* 黃X賢 4094W008
+
+::::columns
+
+:::column
+
+程式資料
+``` {.cs .numberLines}
+public class Student
 {
-    /// <summary>
-    /// 學生
-    /// </summary>
-    public class Student
+    public readonly string Id;
+    public readonly string Name;
+    public Student(string id, string name)
     {
-        // 學號
-        public readonly string Id;
-        // 姓名
-        public readonly string Name;
-
-        public Student(string id, string name)
-        {
-            Id = id;
-            Name = name;
-        }
-    }
-
-    public class StudentFind
-    {
-        private readonly List<Student> _students;
-
-        public StudentFind()
-        {
-            _students = new List<Student>
-            {
-                new Student("4094W007", "Nick"),
-                new Student("4094W010", "Aven"),
-                new Student("4094W011", "Totti"),
-                new Student("4094W012", "Jeff"),
-                new Student("4094W008", "Terry"),
-            };
-        }
-
-        /// <summary>
-        /// 用名稱查詢學生學號
-        /// 
-        ///     受測試的 Function
-        /// </summary>
-        /// <param name="name">要查找的名字</param>
-        /// <returns>返回查找的學生學號</returns>
-        public string Find(string name)
-        {
-            foreach (var item in _students)
-            {
-                if (item.Name == name)
-                {
-                    return item.Id;
-                }
-            }
-            return "";
-        }
+        Id = id;
+        Name = name;
     }
 }
-
+/// ..... 略
+_students = new List<Student>
+{
+    new Student("4094W007", "Nick"),
+    new Student("4094W010", "Aven"),
+    new Student("4094W011", "Totti"),
+    new Student("4094W012", "Jeff"),
+    new Student("4094W008", "Terry"),
+};
 ```
+程式邏輯
+```{.cs .numberLines startFrom="1"}
+/// 找到，返回查找的學生學號
+/// 沒找到，返回空字串
+public string Find(string name, 
+    List<Student> students)
+{
+    foreach (var item in students)
+    {
+        if (item.Name == name)
+        {
+            return item.Id;
+        }
+    }
+    return "";
+}
+```
+:::
 
+:::column
 ## Graph
 
-![alt Graph](./graph.svg)
+<!--![alt Graph](./graph.svg) { width: 200px; }-->
+<img style="width: 320px;padding: 50px;" alt="" src="./graph.svg" />
+:::
+
+::::
 
 ## Edge Coverage 
 
 * [A B]
 * [B C]
 * [C D]
+* [D E]
 * [D F]
 * [F B]
-* [F H]
-* [D E]
 * [E G]
+* [B H]
 
+<p class="pagebreak" />
 
 ## Edge-Pair Coverage 
 
 * [A B C]
+* [A B H]
 * [B C D]
+* [C D E]
 * [C D F]
-* [D F B]
-* [D F H]
 * [D E G]
+* [D F B]
+* [F B C]
+* [F B H]
   
 ## Test Paths
 
+none loop
+
+* [A B H]
 * [A B C D E G]
-* [A B C D F B C D F H]
+
+loop
+
+* [A B C D F B C D E G]
+* [A B C D F B H]
