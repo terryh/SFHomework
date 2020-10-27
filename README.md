@@ -65,7 +65,7 @@ reference https://docs.microsoft.com/zh-tw/dotnet/core/testing/?pivots=mstest
 
 * MSTest 
 * XUnit
-* Nuint
+* Nunit
 
 ## C# test coverage tool
 
