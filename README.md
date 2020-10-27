@@ -9,17 +9,33 @@
 
 * Set homework tool
     will install coverlet and reportgenerator in global
-    ```
+
+    ```bash
     make setup
     ```
 
     graphviz download install http://www.graphviz.org/download/
 
+    pandoc install https://pandoc.org/installing.html
+
+    command to generate svg image
+
+    ```bash
+    dot graph.dot -T svg -o graph.svg
+    ```
+
+
+    command to generate html document
+
+    ```bash
+    pandoc README.md -s --quiet --highlight-style breezedark -o readme.html
+    ```
+
 * Build  
 
     please change directory to the homework[1-8] folder then type
 
-    ```
+    ```bash
     make build
 
     ```
@@ -29,7 +45,7 @@
     please change directory to the homework[1-8] folder then type
     which will generate CoverletOutputFormat=cobertura -p:CoverletOutput=./.coverage.cobertura.xml
 
-    ```
+    ```bash
     make test
 
     ```
@@ -38,7 +54,7 @@
     please change directory to the homework[1-8] folder then type
     which will run reportgenerator place html output to folder ./.coverage (please open the browser)
 
-    ```
+    ```bash
     make report
 
     ```
