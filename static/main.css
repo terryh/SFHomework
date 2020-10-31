@@ -9,6 +9,6 @@ pre [class*='language-'] {
   font-size: 0.9em; 
 } 
 @media print {
-  @page { margin: 0; }
+  @page { margin: 0.25cm; }
   body { margin: 0.25cm; }
 }
