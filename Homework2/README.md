@@ -79,6 +79,28 @@ public string Find(string name,
 
 <p class="pagebreak" />
 
+students = { 
+    new Student("4094W007", "Nick"), 
+    new Student("4094W010", "Aven"), 
+    new Student("4094W011", "Totti"),
+};
+
+### test case 1
+
+1. input values: "Totti"
+2. expected result: "4094W011"
+3. test program's result: "4094W011"
+
+edge coverage:  [A B] [B C] [C D] [D F] [F B] [D E] [E D]
+
+### test case2 
+
+1. input values: "John"
+2. expected result: ""
+3. test program's result: ""
+
+edge coverage:  [A B] [B C] [C D] [D F] [F B] [B H]
+
 ## Edge-Pair Coverage 
 
 * [A B C]
@@ -90,7 +112,36 @@ public string Find(string name,
 * [D F B]
 * [F B C]
 * [F B H]
-  
+
+### test case 1
+
+1. input values: "Totti"
+2. expected result: "4094W011"
+3. test program's result: "4094W011"
+
+edge-pair coverage:  [A B C] [B C D] [C D F] [D F B] [F B C] [C D E] [D E G] 
+
+### test case2 
+
+1. input values: "John"
+2. expected result: ""
+3. test program's result: ""
+
+edge-pair coverage:  [A B C] [B C D] [C D F] [D F B] [F B C] [F B H]
+
+
+### test case3
+
+students = new List<Student>{}; // empty array
+
+1. input values: "John"
+2. expected result: ""
+3. test program's result: ""
+
+edge-pair coverage:  [A B H]
+
+<p class="pagebreak" />
+
 ## Test Paths
 
 none loop
@@ -98,7 +149,57 @@ none loop
 * [A B H]
 * [A B C D E G]
 
+### test case1 
+
+1. input values: "John" students = new List<Student>{}; // empty array
+2. expected result: ""
+3. test program's result: ""
+
+test paths coverage:  [A B H]
+
+### test case2 
+
+students = { 
+    new Student("4094W007", "Nick"), 
+    new Student("4094W010", "Aven"), 
+    new Student("4094W011", "Totti"),
+};
+
+1. input values: "Nick" 
+2. expected result: "4094W007"
+3. test program's result: "4094W007"
+
+test paths coverage: [A B C D E G]
+
 loop
 
 * [A B C D F B C D E G]
 * [A B C D F B H]
+
+### test case1 
+
+students = { 
+    new Student("4094W007", "Nick"), 
+    new Student("4094W010", "Aven"), 
+    new Student("4094W011", "Totti"),
+};
+
+1. input values: "Aven"
+2. expected result: "4094W010"
+3. test program's result: "4094W010"
+
+test path coverage: [A B C D F B C D E G]
+
+### test case2 
+
+students = { 
+    new Student("4094W007", "Nick"), 
+    new Student("4094W010", "Aven"), 
+    new Student("4094W011", "Totti"),
+};
+
+1. input values: "John"
+2. expected result: ""
+3. test program's result: ""
+
+test path coverage: [A B C D F B H]
