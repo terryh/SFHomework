@@ -144,7 +144,7 @@ edge-pair coverage:  [A B H]
 
 ## Test Paths
 
-none loop
+### none loop
 
 * [A B H]
 * [A B C D E G]
@@ -171,12 +171,12 @@ students = {
 
 test paths coverage: [A B C D E G]
 
-loop
+### loop
 
 * [A B C D F B C D E G]
 * [A B C D F B H]
 
-### test case1 
+### test case3 
 
 students = { 
     new Student("4094W007", "Nick"), 
@@ -190,7 +190,7 @@ students = {
 
 test path coverage: [A B C D F B C D E G]
 
-### test case2 
+### test case4 
 
 students = { 
     new Student("4094W007", "Nick"), 
