@@ -2,13 +2,17 @@
 body {
   /*font-family: 'Source Code Pro', monospace;*/
   font-family: 'Fira Code', monospace;
-
-  font-size: 80%;
+  font-size: 60%;
+  margin: 0 0;
+  max-width: 80em;
+  padding: 15px;
 }
-pre [class*='language-'] { 
-  font-size: 0.9em; 
+.sourceCode { 
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8em; 
 } 
+
 @media print {
-  @page { margin: 0.25cm; }
-  body { margin: 0.25cm; }
+  @page { margin: 0cm; margin: 0cm;}
+  body { max-width: 100%; margin: 0.15cm; }
 }
