@@ -41,6 +41,8 @@ _students = new List<Student>
         // name, score, bmi
         new Student("Nick", 95.0f, 22.0f),
         new Student("Jack", 79.0f, 23.0f),
+        new Student("Clark", 79.0f, 17.0f),
+        new Student("Peter", 82.0f, 17.0f),
         new Student("John", 80.0f, 26.0f),
         new Student("Mary", 77.0f, 25.0f),
     };
@@ -49,20 +51,30 @@ _students = new List<Student>
 if (item.Name == name && ((item.Bmi >= 18.5f && item.Bmi < 24.0f) || item.Score >= 80.0f))
 ```
 
+A && ((B && C) || D)
+
 * A => item.Name == name
-* B => (item.Bmi >= 18.5f && item.Bmi < 24.0f)
-* C => item.Score >= 80.0f
+* B => item.Bmi >= 18.5f
+* C => item.Bmi < 24.0f
+* D => item.Score >= 80.0f
+
 <p class="pagebreak" />
 
 ## Predicate Coverage 
 
 ### test case 1 
 
+
+A && ((B && C) || D) ==> True
+
 1. input values: "Nick"
 2. expected result: "YES"
 3. test program's result: "YES"
 
+
 ### test case 2 
+
+A && ((B && C) || D) ==> False
 
 1. input values: "Eric"
 2. expected result: ""
@@ -70,75 +82,115 @@ if (item.Name == name && ((item.Bmi >= 18.5f && item.Bmi < 24.0f) || item.Score 
 
 ## Clause Coverage 
 
-### test case 3 
+A && ((B && C) || D)
 
-A && (B || C)
 
-A True, B True, C True
+### test case 1 
+
+A: True, B: True, C: True, D: True
 
 1. input values: "Nick"
 2. expected result: "YES"
 3. test program's result: "YES"
 
-### test case 4 
+### test case 2 
 
-A && (B || C)
 
-A True, B False, C False
-
-1. input values: "Mary"
-2. expected result: "NO"
-3. test program's result: "NO"
-
-### test case 5 
-
-A && (B || C)
-
-A False, B False, C False
+A: False, B: False, C: False, D: False
 
 1. input values: "Eric"
 2. expected result: ""
 3. test program's result: ""
 
-<p class="pagebreak" />
 
 ## Combinatorial Coverage 
 
+if (item.Name == name && ((item.Bmi >= 18.5f && item.Bmi < 24.0f) || item.Score >= 80.0f))
+
+A && ((B && C) || D)
+
+* A => item.Name == name
+* B => item.Bmi >= 18.5f
+* C => item.Bmi < 24.0f
+* D => item.Score >= 80.0f
+
+<p class="pagebreak" />
+
+::::columns
+
+:::column
+
+### test case 1 
+
+ABCD: 0000 0
+
+1. input values: "Eric"
+2. expected result: ""
+3. test program's result: ""
+
+### test case 2 
+
+ABCD: 0001 1
+
+1. input values: "Mike"
+2. expected result: ""
+3. test program's result: ""
+
+### test case 3 
+
+ABCD: 0010 2
+
+1. input values: "Ted"
+2. expected result: ""
+3. test program's result: ""
+
+### test case 4 
+
+ABCD: 0011 3
+
+1. input values: "William"
+2. expected result: ""
+3. test program's result: ""
+
+### test case 5 
+
+ABCD: 0100 4
+
+1. input values: "Tom"
+2. expected result: ""
+3. test program's result: ""
+
+
 ### test case 6 
 
-A && (B || C)
+ABCD: 0101 5
 
-A True, B True, C True
+1. input values: "Evon"
+2. expected result: ""
+3. test program's result: ""
 
-1. input values: "Nick"
-2. expected result: "YES"
-3. test program's result: "YES"
+:::
+:::column
 
 ### test case 7 
 
-A && (B || C)
+ABCD: 0110 6
 
-A True, B True, C False
-
-1. input values: "Jack"
-2. expected result: "YES"
-3. test program's result: "YES"
+1. input values: "Jackson"
+2. expected result: ""
+3. test program's result: ""
 
 ### test case 8 
 
-A && (B || C)
+ABCD: 0111 7
 
-A True, B False, C True
-
-1. input values: "John"
-2. expected result: "YES"
-3. test program's result: "YES"
+1. input values: "Dino"
+2. expected result: ""
+3. test program's result: ""
 
 ### test case 9 
 
-A && (B || C)
-
-A True, B False, C False
+ABCD: 1000 8 
 
 1. input values: "Mary"
 2. expected result: "NO"
@@ -146,10 +198,63 @@ A True, B False, C False
 
 ### test case 10 
 
-A && (B || C)
+ABCD: 1001 9
 
-A False, B False, C False
+1. input values: "John"
+2. expected result: "YES"
+3. test program's result: "YES"
 
-1. input values: "Eric"
-2. expected result: ""
-3. test program's result: ""
+### test case 11 
+
+ABCD: 1010 10
+
+1. input values: "Clark"
+2. expected result: "NO"
+3. test program's result: "NO"
+
+### test case 12 
+
+ABCD: 1011 11
+
+1. input values: "Peter"
+2. expected result: "YES"
+3. test program's result: "YES"
+
+:::
+::::
+
+<p class="pagebreak" />
+
+### test case 13 
+
+ABCD: 1100 12
+
+1. input values: "Mary"
+2. expected result: "NO"
+3. test program's result: "NO"
+
+### test case 14 
+
+ABCD: 1101 13
+
+1. input values: "John"
+2. expected result: "YES"
+3. test program's result: "YES"
+
+### test case 15 
+
+ABCD: 1110 14
+
+1. input values: "Jack"
+2. expected result: "YES"
+3. test program's result: "YES"
+
+### test case 16 
+
+ABCD: 1111 15
+
+1. input values: "Nick"
+2. expected result: "YES"
+3. test program's result: "YES"
+
+
