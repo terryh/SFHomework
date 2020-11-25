@@ -6,12 +6,12 @@ using Homework;
 
 namespace Homework.Tests
 {
-    public class LogicalExpressTest
+    public class PredicateTest
     {
         private readonly GoodStudentFind _goodStudentFind;
         private readonly List<Student> _students;
 
-        public LogicalExpressTest()
+        public PredicateTest()
         {
             _goodStudentFind = new GoodStudentFind();
             _students = new List<Student>
@@ -19,6 +19,8 @@ namespace Homework.Tests
                     // name, score, bmi
                     new Student("Nick", 95.0f, 22.0f),
                     new Student("Jack", 79.0f, 23.0f),
+                    new Student("Clark", 79.0f, 17.0f),
+                    new Student("Peter", 82.0f, 17.0f),
                     new Student("John", 80.0f, 26.0f),
                     new Student("Mary", 77.0f, 25.0f),
                 };
@@ -38,45 +40,117 @@ namespace Homework.Tests
             var result = _goodStudentFind.IsGoodStudent(name, _students);
             Assert.Equal(result, expectValue);
         }
+    }
 
+
+    public class ClauseTest
+    {
+        private readonly GoodStudentFind _goodStudentFind;
+        private readonly List<Student> _students;
+
+        public ClauseTest()
+        {
+            _goodStudentFind = new GoodStudentFind();
+            _students = new List<Student>
+                {
+                    // name, score, bmi
+                    new Student("Nick", 95.0f, 22.0f),
+                    new Student("Jack", 79.0f, 23.0f),
+                    new Student("Clark", 79.0f, 17.0f),
+                    new Student("Peter", 82.0f, 17.0f),
+                    new Student("John", 80.0f, 26.0f),
+                    new Student("Mary", 77.0f, 25.0f),
+                };
+        }
         // Clause Coverage 
         [Theory, InlineData("Nick", "YES")]
+        public void TestCase1(string name, string expectValue)
+        {
+            var result = _goodStudentFind.IsGoodStudent(name, _students);
+            Assert.Equal(result, expectValue);
+        }
+
+
+        [Theory, InlineData("Eric", "")]
+        public void TestCase2(string name, string expectValue)
+        {
+            var result = _goodStudentFind.IsGoodStudent(name, _students);
+            Assert.Equal(result, expectValue);
+        }
+
+    }
+
+    public class CombinatorialTest
+    {
+        private readonly GoodStudentFind _goodStudentFind;
+        private readonly List<Student> _students;
+
+        public CombinatorialTest()
+        {
+            _goodStudentFind = new GoodStudentFind();
+            _students = new List<Student>
+                {
+                    // name, score, bmi
+                    new Student("Nick", 95.0f, 22.0f),
+                    new Student("Jack", 79.0f, 23.0f),
+                    new Student("Clark", 79.0f, 17.0f),
+                    new Student("Peter", 82.0f, 17.0f),
+                    new Student("John", 80.0f, 26.0f),
+                    new Student("Mary", 77.0f, 25.0f),
+                };
+        }
+
+        // Combinatorial Coverage 
+        [Theory, InlineData("Eric", "")]
+        public void TestCase1(string name, string expectValue)
+        {
+            var result = _goodStudentFind.IsGoodStudent(name, _students);
+            Assert.Equal(result, expectValue);
+        }
+
+        [Theory, InlineData("Mike", "")]
+        public void TestCase2(string name, string expectValue)
+        {
+            var result = _goodStudentFind.IsGoodStudent(name, _students);
+            Assert.Equal(result, expectValue);
+        }
+
+        [Theory, InlineData("Ted", "")]
         public void TestCase3(string name, string expectValue)
         {
             var result = _goodStudentFind.IsGoodStudent(name, _students);
             Assert.Equal(result, expectValue);
         }
 
-        [Theory, InlineData("Mary", "NO")]
+        [Theory, InlineData("William", "")]
         public void TestCase4(string name, string expectValue)
         {
             var result = _goodStudentFind.IsGoodStudent(name, _students);
             Assert.Equal(result, expectValue);
         }
 
-        [Theory, InlineData("Eric", "")]
+        [Theory, InlineData("Tom", "")]
         public void TestCase5(string name, string expectValue)
         {
             var result = _goodStudentFind.IsGoodStudent(name, _students);
             Assert.Equal(result, expectValue);
         }
 
-        // Combinatorial Coverage 
-        [Theory, InlineData("Nick", "YES")]
+        [Theory, InlineData("Evon", "")]
         public void TestCase6(string name, string expectValue)
         {
             var result = _goodStudentFind.IsGoodStudent(name, _students);
             Assert.Equal(result, expectValue);
         }
 
-        [Theory, InlineData("Jack", "YES")]
+        [Theory, InlineData("Jackson", "")]
         public void TestCase7(string name, string expectValue)
         {
             var result = _goodStudentFind.IsGoodStudent(name, _students);
             Assert.Equal(result, expectValue);
         }
 
-        [Theory, InlineData("John", "YES")]
+        [Theory, InlineData("Dino", "")]
         public void TestCase8(string name, string expectValue)
         {
             var result = _goodStudentFind.IsGoodStudent(name, _students);
@@ -90,8 +164,50 @@ namespace Homework.Tests
             Assert.Equal(result, expectValue);
         }
 
-        [Theory, InlineData("Eric", "")]
+        [Theory, InlineData("John", "YES")]
         public void TestCase10(string name, string expectValue)
+        {
+            var result = _goodStudentFind.IsGoodStudent(name, _students);
+            Assert.Equal(result, expectValue);
+        }
+
+        [Theory, InlineData("Clark", "NO")]
+        public void TestCase11(string name, string expectValue)
+        {
+            var result = _goodStudentFind.IsGoodStudent(name, _students);
+            Assert.Equal(result, expectValue);
+        }
+
+        [Theory, InlineData("Peter", "YES")]
+        public void TestCase12(string name, string expectValue)
+        {
+            var result = _goodStudentFind.IsGoodStudent(name, _students);
+            Assert.Equal(result, expectValue);
+        }
+
+        [Theory, InlineData("Mary", "NO")]
+        public void TestCase13(string name, string expectValue)
+        {
+            var result = _goodStudentFind.IsGoodStudent(name, _students);
+            Assert.Equal(result, expectValue);
+        }
+
+        [Theory, InlineData("John", "YES")]
+        public void TestCase14(string name, string expectValue)
+        {
+            var result = _goodStudentFind.IsGoodStudent(name, _students);
+            Assert.Equal(result, expectValue);
+        }
+
+        [Theory, InlineData("Jack", "YES")]
+        public void TestCase15(string name, string expectValue)
+        {
+            var result = _goodStudentFind.IsGoodStudent(name, _students);
+            Assert.Equal(result, expectValue);
+        }
+
+        [Theory, InlineData("Nick", "YES")]
+        public void TestCase16(string name, string expectValue)
         {
             var result = _goodStudentFind.IsGoodStudent(name, _students);
             Assert.Equal(result, expectValue);
