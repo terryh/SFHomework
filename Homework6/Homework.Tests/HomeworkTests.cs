@@ -9,13 +9,11 @@ namespace Homework.Tests
     public class MutationTest
     {
         private readonly GoodStudentFind _goodStudentFind;
-        private readonly GoodStudentFindMuted _goodStudentFindMuted;
         private readonly List<Student> _students;
 
         public MutationTest()
         {
             _goodStudentFind = new GoodStudentFind();
-            _goodStudentFindMuted = new GoodStudentFindMuted();
             _students = new List<Student>
                 {
                     // name, score, bmi
@@ -26,7 +24,6 @@ namespace Homework.Tests
                 };
         }
 
-        //  Mutation testing coverage
         [Theory, InlineData("John", "YES")]
         public void TestCase1(string name, string expectValue)
         {
@@ -34,11 +31,88 @@ namespace Homework.Tests
             Assert.Equal(result, expectValue);
         }
 
-        [Theory, InlineData("John", "NO")]
-        public void TestCase2(string name, string expectValue)
+        [Theory, InlineData("John", "")]
+        public void TestCaseLine1(string name, string expectValue)
         {
+            var _goodStudentFindMuted = new GoodStudentFindLine1();
             var result = _goodStudentFindMuted.IsGoodStudent(name, _students);
             Assert.Equal(result, expectValue);
         }
+
+        [Theory, InlineData("John", "YES")]
+        public void TestCase2(string name, string expectValue)
+        {
+            var result = _goodStudentFind.IsGoodStudent(name, _students);
+            Assert.Equal(result, expectValue);
+        }
+
+        [Theory, InlineData("John", "NO")]
+        public void TestCaseLine2(string name, string expectValue)
+        {
+            var _goodStudentFindMuted = new GoodStudentFindLine2();
+            var result = _goodStudentFindMuted.IsGoodStudent(name, _students);
+            Assert.Equal(result, expectValue);
+        }
+
+        [Theory, InlineData("Nick", "YES")]
+        public void TestCase3(string name, string expectValue)
+        {
+            var result = _goodStudentFind.IsGoodStudent(name, _students);
+            Assert.Equal(result, expectValue);
+        }
+
+        [Theory, InlineData("Nick", "NO")]
+        public void TestCaseLine3(string name, string expectValue)
+        {
+            var _goodStudentFindMuted = new GoodStudentFindLine3();
+            var result = _goodStudentFindMuted.IsGoodStudent(name, _students);
+            Assert.Equal(result, expectValue);
+        }
+
+        [Theory, InlineData("Mary", "NO")]
+        public void TestCase4(string name, string expectValue)
+        {
+            var result = _goodStudentFind.IsGoodStudent(name, _students);
+            Assert.Equal(result, expectValue);
+        }
+
+        [Theory, InlineData("Mary", "NO")]
+        public void TestCaseLine4(string name, string expectValue)
+        {
+            var _goodStudentFindMuted = new GoodStudentFindLine4();
+            var result = _goodStudentFindMuted.IsGoodStudent(name, _students);
+            Assert.Equal(result, expectValue);
+        }
+
+        [Theory, InlineData("Mary", "NO")]
+        public void TestCase5(string name, string expectValue)
+        {
+            var result = _goodStudentFind.IsGoodStudent(name, _students);
+            Assert.Equal(result, expectValue);
+        }
+
+        [Theory, InlineData("Mary", "YES")]
+        public void TestCaseLine5(string name, string expectValue)
+        {
+            var _goodStudentFindMuted = new GoodStudentFindLine5();
+            var result = _goodStudentFindMuted.IsGoodStudent(name, _students);
+            Assert.Equal(result, expectValue);
+        }
+
+        [Theory, InlineData("Eric", "")]
+        public void TestCase6(string name, string expectValue)
+        {
+            var result = _goodStudentFind.IsGoodStudent(name, _students);
+            Assert.Equal(result, expectValue);
+        }
+
+        [Theory, InlineData("Eric", "YES")]
+        public void TestCaseLine6(string name, string expectValue)
+        {
+            var _goodStudentFindMuted = new GoodStudentFindLine6();
+            var result = _goodStudentFindMuted.IsGoodStudent(name, _students);
+            Assert.Equal(result, expectValue);
+        }
+
     }
 }
