@@ -13,56 +13,28 @@
 
 程式邏輯
 
-::::columns
-
-:::column
-
 原始
 ```{.cs .numberLines}
-public string IsGoodStudent(string name, List<Student> students)
+public class GoodStudentFind
 {
-    foreach (var item in students)
+    public string IsGoodStudent(string name, List<Student> students)
     {
-        if (item.Name == name && (
-            (item.Bmi >= 18.5f && item.Bmi < 24.0f) || 
-            item.Score >= 80.0f))
+        foreach (var item in students)
         {
-            return "YES";
-        } else if (item.Name == name) 
-        {
-            return "NO";
+            if (item.Name == name && ( (item.Bmi >= 18.5f && item.Bmi < 24.0f) || item.Score >= 80.0f))
+            {
+                return "YES";
+            } else if (item.Name == name) 
+            {
+                return "NO";
+            }
         }
+        return "";
     }
-    // no found
-    return "";
 }
 ```
-:::
-:::column
-修改
-```{.cs .numberLines}
-public string IsGoodStudent(string name, List<Student> students)
-{
-    foreach (var item in students)
-    {
-        if (item.Name == name && (
-            (item.Bmi >= 18.5f && item.Bmi < 24.0f) || 
-            item.Score > 80.0f))
-        {
-            return "YES";
-        } else if (item.Name == name) 
-        {
-            return "NO";
-        }
-    }
-    // no found
-    return "";
-}
-```
-:::
-::::
 
-## Mutation testing coverage
+## 測試資料
 
 ```{.cs}
 /// students
@@ -74,24 +46,240 @@ _students = new List<Student>
         new Student("John", 80.0f, 26.0f),
         new Student("Mary", 77.0f, 25.0f),
     };
-
-/// 原始
-if (item.Name == name && ((item.Bmi >= 18.5f && item.Bmi < 24.0f) || item.Score >= 80.0f))
-/// 修改
-if (item.Name == name && ((item.Bmi >= 18.5f && item.Bmi < 24.0f) || item.Score > 80.0f))
 ```
 <p class="pagebreak" />
 
 ## Mutation testing coverage
 
+## 修改1
+```{.cs .numberLines}
+//foreach (var item in students)
+foreach (var item in students.GetRange(0,1))
+{
+    if (item.Name == name && ( (item.Bmi >= 18.5f && item.Bmi < 24.0f) || item.Score >= 80.0f))
+    {
+        return "YES";
+    } else if (item.Name == name) 
+    {
+        return "NO";
+    }
+}
+return "";
+```
+
 ### test case 1 
+
+::::columns
+:::column
+
+未改
 
 1. input values: "John"
 2. expected result: "YES"
 3. test program's result: "YES"
 
+:::
+:::column
+
+修改
+
+1. input values: "John"
+2. expected result: ""
+3. test program's result: ""
+:::
+::::
+
+## 修改2
+```{.cs .numberLines}
+foreach (var item in students)
+{
+    //if (item.Name == name && ( (item.Bmi >= 18.5f && item.Bmi < 24.0f) || item.Score >= 80.0f))
+    if (item.Name == name && ( (item.Bmi >= 18.5f && item.Bmi < 24.0f) || item.Score > 80.0f))
+    {
+        return "YES";
+    } else if (item.Name == name) 
+    {
+        return "NO";
+    }
+}
+return "";
+```
+
 ### test case 2 
+
+::::columns
+:::column
+
+未改
+
+1. input values: "John"
+2. expected result: "YES"
+3. test program's result: "YES"
+
+:::
+:::column
+
+修改
 
 1. input values: "John"
 2. expected result: "NO"
 3. test program's result: "NO"
+:::
+::::
+
+<p class="pagebreak" />
+
+## 修改3
+```{.cs .numberLines}
+foreach (var item in students)
+{
+    if (item.Name == name && ( (item.Bmi >= 18.5f && item.Bmi < 24.0f) || item.Score >= 80.0f))
+    {
+        //return "YES";
+        return "NO";
+    } else if (item.Name == name) 
+    {
+        return "NO";
+    }
+}
+return "";
+```
+
+### test case 3 
+
+::::columns
+:::column
+
+未改
+
+1. input values: "Nick"
+2. expected result: "YES"
+3. test program's result: "YES"
+
+:::
+:::column
+
+修改
+
+1. input values: "Nick"
+2. expected result: "NO"
+3. test program's result: "NO"
+:::
+::::
+
+## 修改4
+```{.cs .numberLines}
+foreach (var item in students)
+{
+    if (item.Name == name && ( (item.Bmi >= 18.5f && item.Bmi < 24.0f) || item.Score >= 80.0f))
+    {
+        return "YES";
+    //} else if (item.Name == name) 
+    } else if (item.Name != name) 
+    {
+        return "NO";
+    }
+}
+return "";
+```
+
+### test case 4
+
+::::columns
+:::column
+
+未改
+
+1. input values: "Mary"
+2. expected result: "NO"
+3. test program's result: "NO"
+
+:::
+:::column
+
+修改
+
+1. input values: "Mary"
+2. expected result: "NO"
+3. test program's result: "NO"
+:::
+::::
+
+<p class="pagebreak" />
+
+## 修改5
+```{.cs .numberLines}
+foreach (var item in students)
+{
+    if (item.Name == name && ( (item.Bmi >= 18.5f && item.Bmi < 24.0f) || item.Score >= 80.0f))
+    {
+        return "YES";
+    } else if (item.Name == name) 
+    {
+        //return "NO";
+        return "YES";
+    }
+}
+return "";
+```
+
+### test case 5
+
+::::columns
+:::column
+
+未改
+
+1. input values: "Mary"
+2. expected result: "NO"
+3. test program's result: "NO"
+
+:::
+:::column
+
+修改
+
+1. input values: "Mary"
+2. expected result: "YES"
+3. test program's result: "YES"
+:::
+::::
+
+## 修改6
+```{.cs .numberLines}
+foreach (var item in students)
+{
+    if (item.Name == name && ( (item.Bmi >= 18.5f && item.Bmi < 24.0f) || item.Score >= 80.0f))
+    {
+        return "YES";
+    } else if (item.Name == name) 
+    {
+        return "NO";
+    }
+}
+// return "";
+return "YES";
+```
+
+### test case 6
+
+::::columns
+:::column
+
+未改
+
+1. input values: "Eric"
+2. expected result: ""
+3. test program's result: ""
+
+:::
+:::column
+
+修改
+
+1. input values: "Eric"
+2. expected result: "YES"
+3. test program's result: "YES"
+:::
+::::
+
