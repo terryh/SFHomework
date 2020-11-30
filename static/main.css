@@ -9,10 +9,19 @@ body {
 }
 .sourceCode { 
   font-family: 'Fira Code', monospace;
-  font-size: 0.8em; 
+  font-size: 0.9em; 
 } 
+td, th {
+    border: 1px solid grey
+}
 
 @media print {
-  @page { margin: 0cm; margin: 0cm;}
-  body { max-width: 100%; margin: 0.15cm; }
+  /*@page { margin: 0.1cm;}*/
+  body { max-width: 100%; margin: 0cm; }
+  @page {
+      margin-top: 0.2cm;
+      margin-bottom: 0.2cm;
+      margin-left: 0.2cm;
+      margin-right: 0.2cm;
+  }
 }
