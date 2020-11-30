@@ -2,7 +2,6 @@
 <link href="../static/main.css" rel="stylesheet" />
 
 ## Homework6 (第二組)
-
 ### 組員
 
 * 游X翰 4094W007
@@ -47,7 +46,7 @@ _students = new List<Student>
         new Student("Mary", 77.0f, 25.0f),
     };
 ```
-<p class="pagebreak" />
+# {.pagebreak}
 
 ## Mutation testing coverage
 
@@ -69,25 +68,10 @@ return "";
 
 ### test case 1 
 
-::::columns
-:::column
-
-未改
-
 1. input values: "John"
 2. expected result: "YES"
 3. test program's result: "YES"
-
-:::
-:::column
-
-修改
-
-1. input values: "John"
-2. expected result: ""
-3. test program's result: ""
-:::
-::::
+4. mutation test program's result: ""
 
 ## 修改2
 ```{.cs .numberLines}
@@ -107,27 +91,12 @@ return "";
 
 ### test case 2 
 
-::::columns
-:::column
-
-未改
-
 1. input values: "John"
 2. expected result: "YES"
 3. test program's result: "YES"
+4. mutation test program's result: "NO"
 
-:::
-:::column
-
-修改
-
-1. input values: "John"
-2. expected result: "NO"
-3. test program's result: "NO"
-:::
-::::
-
-<p class="pagebreak" />
+# {.pagebreak}
 
 ## 修改3
 ```{.cs .numberLines}
@@ -147,25 +116,10 @@ return "";
 
 ### test case 3 
 
-::::columns
-:::column
-
-未改
-
 1. input values: "Nick"
 2. expected result: "YES"
 3. test program's result: "YES"
-
-:::
-:::column
-
-修改
-
-1. input values: "Nick"
-2. expected result: "NO"
-3. test program's result: "NO"
-:::
-::::
+4. mutation program's result: "NO"
 
 ## 修改4
 ```{.cs .numberLines}
@@ -185,27 +139,14 @@ return "";
 
 ### test case 4
 
-::::columns
-:::column
-
-未改
+此修改，無有效測試案例
 
 1. input values: "Mary"
 2. expected result: "NO"
 3. test program's result: "NO"
+4. mutation test program's result: "NO"
 
-:::
-:::column
-
-修改
-
-1. input values: "Mary"
-2. expected result: "NO"
-3. test program's result: "NO"
-:::
-::::
-
-<p class="pagebreak" />
+# {.pagebreak}
 
 ## 修改5
 ```{.cs .numberLines}
@@ -225,25 +166,10 @@ return "";
 
 ### test case 5
 
-::::columns
-:::column
-
-未改
-
 1. input values: "Mary"
 2. expected result: "NO"
 3. test program's result: "NO"
-
-:::
-:::column
-
-修改
-
-1. input values: "Mary"
-2. expected result: "YES"
-3. test program's result: "YES"
-:::
-::::
+4. mutation test program's result: "YES"
 
 ## 修改6
 ```{.cs .numberLines}
@@ -263,23 +189,7 @@ return "YES";
 
 ### test case 6
 
-::::columns
-:::column
-
-未改
-
 1. input values: "Eric"
 2. expected result: ""
 3. test program's result: ""
-
-:::
-:::column
-
-修改
-
-1. input values: "Eric"
-2. expected result: "YES"
-3. test program's result: "YES"
-:::
-::::
-
+4. mutation test program's result: "YES"
