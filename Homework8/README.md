@@ -3,28 +3,20 @@
 
 ## Homework8 (第二組)
 
-### 組員
-
-* 游X翰 4094W007
-* 張X文 4094W010
-* 李X成 4094W011
-* 何X禹 4094W012
-* 黃X賢 4094W008
-
 程式邏輯
-
 ```{.cs .numberLines}
 public class StudentScore
 {
-    private static float _maxScore = 100.0f;
-    private static float _minScore = 0.0f;
+    private static int _maxScore = 100;
+    private static int _minScore = 0;
     private static int _maxStudentsLength = 500;
+    private static int _minStudentsLength = 1;
 
-    public bool SetStudentScore(string id, float score, List<Student> students)
+    public bool SetStudentScore(string id, int score, List<Student> students)
     {
-        if (students.Count > _maxStudentsLength)
+        if (students.Count > _maxStudentsLength || students.Count < _minStudentsLength)
         {
-            throw new System.ArgumentException($"The length of students not greater than {_maxStudentsLength}");
+            throw new System.ArgumentException($"The length of students limit from {_minStudentsLength} to {_maxStudentsLength}");
         }
 
         foreach (var item in students)
@@ -51,7 +43,6 @@ public class StudentScore
 }
 ```
 
-# {.pagebreak}
 
 ## 測試資料
 
@@ -63,12 +54,14 @@ _students = new List<Student>
     };
 ```
 
+# {.pagebreak}
+
 ## Boundary value
 
 
 程式邏輯功能 SetStudentScore  specification
 
-* 設定班上學生，成績，班上學生人數，最多不超過 500 位
+* 設定班上學生，成績，班上學生人數，最少 1 位， 最多不超過 500 位
 * 分數最高不超過 100.0 分
 * 分數最低不低於 0.0 分 
 * 設定成功傳回 true ，沒設定到任何學生 回傳 false，數值異常，失敗傳回 System.ArgumentException
@@ -81,7 +74,7 @@ _students = new List<Student>
 ```{.cs}
 _students = new List<Student> {};
 ```
-1. input values: "4094W020", 99.0
+1. input values: "4094W020", 99
 2. expected result: false
 3. test program's result: false
 
@@ -90,7 +83,27 @@ _students = new List<Student> {};
 
 ### test case 2
 
-學生數量 2 (數量正常值)
+學生數量 1
+
+```{.cs}
+_students = new List<Student> {
+        new Student("4094W020"),
+};
+```
+
+1. input values: "4094W020", 99
+2. expected result: true
+3. test program's result: true
+:::
+::::
+
+
+::::columns
+:::column
+
+### test case 3
+
+學生數量 2
 
 ```{.cs}
 _students = new List<Student> {
@@ -99,16 +112,36 @@ _students = new List<Student> {
 };
 ```
 
-1. input values: "4094W020", 99.0
+1. input values: "4094W020", 99
 2. expected result: true
 3. test program's result: true
+
+:::
+:::column
+
+### test case 4
+學生數量 499
+
+```{.cs}
+List<Student> _manyStudents = new List<Student>();
+for (var i = 1; i < 500; i++)
+{
+    _manyStudents.Add(new Student($"ST{i:0000}"));
+}
+```
+
+1. input values: "ST0100", 99
+2. expected result: true
+3. test program's result: true
+
 :::
 ::::
 
 ::::columns
 :::column
-### test case 3
-學生數量 500 (數量上限) 
+### test case 5 
+
+學生數量 500
 
 ```{.cs}
 List<Student> _manyStudents = new List<Student>();
@@ -118,16 +151,16 @@ for (var i = 1; i <= 500; i++)
 }
 ```
 
-1. input values: "ST0100", 99.0
+1. input values: "ST0100", 99
 2. expected result: true
 3. test program's result: true
 
 :::
 :::column
 
-### test case 4
+### test case 6 
 
-學生數量 501 (超過數量上限) 
+學生數量 501
 
 ```{.cs}
 List<Student> _manyStudents = new List<Student>();
@@ -137,58 +170,86 @@ for (var i = 1; i <= 501; i++)
 }
 ```
 
-1. input values: "ST0100", 99.0
+1. input values: "ST0100", 99
 2. expected result: Exception System.ArgumentException
 3. test program's result: System.ArgumentException
+
 :::
 ::::
 
 # {.pagebreak}
 
-### test case 5
-
-學生分數 -0.1 (分數下限左邊) 
-
-1. input values: "4094W020", -0.1
-2. expected result: Exception System.ArgumentException
-3. test program's result: System.ArgumentException
-
-### test case 6
-
-學生分數 0.0 (分數下限) 
-
-1. input values: "4094W020", 0.0
-2. expected result: true
-3. test program's result: true
+::::columns
+:::column
 
 ### test case 7
 
-學生分數 0.1 (分數下限右邊) 
+學生分數 -1
 
-1. input values: "4094W020", 0.1
+1. input values: "4094W020", -1
+2. expected result: Exception System.ArgumentException
+3. test program's result: System.ArgumentException
+
+:::
+:::column
+
+### test case 8 
+
+學生分數 0
+
+1. input values: "4094W020", 0
 2. expected result: true
 3. test program's result: true
 
-### test case 8
+:::
+::::
 
-學生分數 99.9 (分數上限左邊) 
-
-1. input values: "4094W020", 99.9
-2. expected result: true
-3. test program's result: true
+::::columns
+:::column
 
 ### test case 9
 
-學生分數 100.0 (分數上限) 
+學生分數 1
 
-1. input values: "4094W020", 100.0
+1. input values: "4094W020", 1
 2. expected result: true
 3. test program's result: true
 
-### test case 10 
+:::
+:::column
 
-學生分數 100.1 (分數上限右邊) 
+### test case 10
 
-1. input values: "4094W020", 100.1
+學生分數 99
+
+1. input values: "4094W020", 99
+2. expected result: true
+3. test program's result: true
+
+:::
+::::
+
+::::columns
+:::column
+
+### test case 11
+
+學生分數 100
+
+1. input values: "4094W020", 100
+2. expected result: true
+3. test program's result: true
+
+:::
+:::column
+
+### test case 12 
+
+學生分數 101
+
+1. input values: "4094W020", 101
 2. expected result: Exception System.ArgumentException
 3. test program's result: System.ArgumentException
+
+:::
+::::
