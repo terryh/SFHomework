@@ -21,7 +21,7 @@ namespace Homework.Tests
                 };
         }
 
-        [Theory, InlineData("4094W020", "eric", true)]
+        [Theory, InlineData("4094W020", "ericLin168", true)]
         public void TestCase1(string id, string name, bool expectValue)
         {
             bool result = _studentName.SetName(id, name, _students);
@@ -34,7 +34,7 @@ namespace Homework.Tests
             Assert.Throws<System.FormatException>(() => _studentName.SetName("4094W020", "Eric", _students));
         }
 
-        [Theory, InlineData("4094W020", "eric123", true)]
+        [Theory, InlineData("4094W020", "ericLin168", true)]
         public void TestCase3(string id, string name, bool expectValue)
         {
             bool result = _studentName.SetName(id, name, _students);
@@ -48,7 +48,7 @@ namespace Homework.Tests
         }
 
 
-        [Theory, InlineData("4094W020", "amyLin168", true)]
+        [Theory, InlineData("4094W020", "ericLin168", true)]
         public void TestCase5(string id, string name, bool expectValue)
         {
             bool result = _studentName.SetName(id, name, _students);
@@ -57,12 +57,6 @@ namespace Homework.Tests
 
         [Fact]
         public void TestCase6()
-        {
-            Assert.Throws<System.FormatException>(() => _studentName.SetName("4094W020", "", _students));
-        }
-
-        [Fact]
-        public void TestCase7()
         {
             Assert.Throws<System.FormatException>(() => _studentName.SetName("4094W020", "an", _students));
         }
