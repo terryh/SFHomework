@@ -1,7 +1,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
 <link href="../static/main.css" rel="stylesheet" />
 
-## Homework6 (第二組)
+## Homework6 Mutation Test Coverage (第二組)
 ### 組員
 
 * 游X翰 4094W007

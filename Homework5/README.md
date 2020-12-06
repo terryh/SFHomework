@@ -1,7 +1,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
 <link href="../static/main.css" rel="stylesheet" />
 
-## Homework5 (第二組)
+## Homework5 Input Domain Characterization (第二組)
 
 ### 組員
 

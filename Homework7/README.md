@@ -1,7 +1,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
 <link href="../static/main.css" rel="stylesheet" />
 
-## Homework7 (第二組)
+## Homework7 Equivalence Partition (第二組)
 
 程式邏輯
 ```{.cs .numberLines}

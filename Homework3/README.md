@@ -2,7 +2,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
 <link href="../static/main.css" rel="stylesheet" />
 
-## Homework3 (第二組)
+## Homework3 Stress Test Coverage (第二組)
 
 ### 組員
 

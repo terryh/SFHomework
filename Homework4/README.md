@@ -1,7 +1,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
 <link href="../static/main.css" rel="stylesheet" />
 
-## Homework4 (第二組)
+## Homework4 Logical Expressions Coverage (第二組)
 
 ### 組員
 

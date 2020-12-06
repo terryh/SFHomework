@@ -2,7 +2,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
 <link href="../static/main.css" rel="stylesheet" />
 
-## Homework2 (第二組)
+## Homework2 Edge Coverage (第二組)
 
 ::::columns
 
