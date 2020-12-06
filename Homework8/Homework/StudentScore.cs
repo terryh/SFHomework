@@ -7,7 +7,7 @@ namespace Homework
     public class Student
     {
         public string Id;
-        public float Score;
+        public int Score;
 
 
         public Student(string id)
@@ -18,15 +18,16 @@ namespace Homework
 
     public class StudentScore
     {
-        private static float _maxScore = 100.0f;
-        private static float _minScore = 0.0f;
+        private static int _maxScore = 100;
+        private static int _minScore = 0;
         private static int _maxStudentsLength = 500;
+        private static int _minStudentsLength = 1;
 
-        public bool SetStudentScore(string id, float score, List<Student> students)
+        public bool SetStudentScore(string id, int score, List<Student> students)
         {
-            if (students.Count > _maxStudentsLength)
+            if (students.Count > _maxStudentsLength || students.Count < _minStudentsLength)
             {
-                throw new System.ArgumentException($"The length of students not greater than {_maxStudentsLength}");
+                throw new System.ArgumentException($"The length of students limit from {_minStudentsLength} to {_maxStudentsLength}");
             }
 
             foreach (var item in students)

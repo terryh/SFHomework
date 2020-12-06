@@ -5,11 +5,11 @@ body {
   font-size: 60%;
   margin: 0 0;
   max-width: 80em;
-  padding: 15px;
+  padding: 12px;
 }
 .sourceCode { 
-  font-family: 'Fira Code', monospace;
-  font-size: 0.9em; 
+  /*font-family: 'Fira Code', monospace;*/
+  /*font-size: 1em; */
 } 
 td, th {
     border: 1px solid grey

@@ -3,16 +3,7 @@
 
 ## Homework7 (第二組)
 
-### 組員
-
-* 游X翰 4094W007
-* 張X文 4094W010
-* 李X成 4094W011
-* 何X禹 4094W012
-* 黃X賢 4094W008
-
 程式邏輯
-
 ```{.cs .numberLines}
 public class StudentName
 {
@@ -52,8 +43,6 @@ public class StudentName
 }
 ```
 
-# {.pagebreak}
-
 ## 測試資料
 
 ```{.cs}
@@ -65,6 +54,8 @@ _students = new List<Student>
     };
 ```
 
+# {.pagebreak}
+
 ##  Equivalence partition 
 
 程式功能 SetName (設定帳號名稱) specification
@@ -74,24 +65,33 @@ _students = new List<Student>
 * 名字長度不能小於 3 個字，不能超過 12 的字
 
 
-Specification condition Valid equivalence class Invalid equivalence class
------------------------------ ----------------- -------------------------
- start chart                    start a-z       start other
- chart                          [a-zA-Z0-9]     others
- length                         3-12 charts     < 3 charts, > 12 charts 
+### Test Input
+
+* ericLin168 (1, 3, 5)
+* Eric (2)
+* eric$ (4)
+* an (6)
+* imNumber1SuperHero (7)
+
+
+Specification condition Valid equivalence class   Invalid equivalence class
+----------------------------- ------------------- -------------------------
+ start chart                    start a-z (1)     start other (2)
+ chart                          a-zA-Z0-9 (3)     others (4)
+ length                         3-12 charts (5)    < 3 charts, > 12 charts (6,7)
 
 
 ### test case 1
 
 valid start a-z
 
-1. input values: "eric"
+1. input values: "ericLin168"
 2. expected result: true
 3. test program's result: true
 
 ### test case 2
 
-invalid start a-z
+invalid start a-z 
 
 1. input values: "Eric"
 2. expected result: Exception System.FormatException 
@@ -99,15 +99,15 @@ invalid start a-z
 
 ### test case 3
 
-valid [a-z0-9]
+valid a-zA-Z0-9
 
-1. input values: "eric123"
+1. input values: "ericLin168"
 2. expected result: true
 3. test program's result: true
 
 ### test case 4
 
-invalid [a-z0-9]
+invalid a-zA-Z0-9
 
 1. input values: "eric$"
 2. expected result: Exception System.FormatException
@@ -119,29 +119,21 @@ invalid [a-z0-9]
 
 valid 3-12 charts
 
-1. input values: "amyLin168"
+1. input values: "ericLin168"
 2. expected result: true
 3. test program's result: true
 
 ### test case 6 
 
-invalid 0 charts
-
-1. input values: ""
-2. expected result: Exception System.FormatException 
-3. test program's result: Exception System.FormatException 
-
-### test case 7 
-
-invalid 2 charts
+invalid &lt; 3 charts
 
 1. input values: "an"
 2. expected result: Exception System.FormatException 
 3. test program's result: Exception System.FormatException 
 
-### test case 8 
+### test case 7 
 
-invalid more than 12 charts
+invalid &gt;  12 charts
 
 1. input values: "imNumber1SuperHero"
 2. expected result: Exception System.FormatException 
