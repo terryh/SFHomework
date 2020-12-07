@@ -1,3 +1,5 @@
+class: center, middle, inverse
+
 # xUnit (Team 2)
 
 * 游X翰 4094W007
@@ -5,6 +7,7 @@
 * 李X成 4094W011
 * 何X禹 4094W012
 * 黃X賢 4094W008
+
 
 ---
 
@@ -32,7 +35,7 @@
 
 # Setting up Unit Testing
 
-```{.sh}
+```sh
 dotnet new xunit -o Homework.Tests
 
 ```
@@ -45,7 +48,7 @@ dotnet new xunit -o Homework.Tests
 
 
 # Hello test
-```{.csharp}
+```csharp
 
 public class UnitTest1
 {
@@ -59,7 +62,7 @@ public class UnitTest1
 ---
 
 # Run test
-```{.sh}
+```sh
 dotnet test
 ```
 
@@ -70,7 +73,7 @@ dotnet test
 
 # Assertions
 
-```{.csharp}
+```csharp
 // Any values
 int value = 0;
 Assert.Equal(42, value);
@@ -92,7 +95,7 @@ Assert.DoesNotContain("sdf", "This is a text.");
 
 # Assertions
 
-```{.csharp
+```csharp
 Assert.StartsWith("This is a text.", "This");
 Assert.EndsWith("This is a text.", "text.");
 
@@ -116,7 +119,7 @@ Assert.Single(listWithSingle);
 
 # Type Based Assertions
 
-```{.csharp}
+```csharp
 Assert.IsType<string>("passes");
 
 Assert.IsNotType<string>(1);
@@ -134,7 +137,7 @@ Assert.NotNull(new List<int>());
 
 # input and expect reault
 
-```
+```csharp
 [Theory, InlineData("Totti", "4094W011")]
 public void TestCase1(string name, string expectValue)
 {
@@ -148,7 +151,7 @@ public void TestCase1(string name, string expectValue)
 
 # Tests in parallel
 
-```{.csharp}
+```csharp
 // Test1 and Test2 runs sequentially => Runs in 10s
 // Test3 and Test4 runs sequentially => Runs in 10s
 // (Test1, Test2) runs in parallel with (Test3, Test4) => Runs in 10s
@@ -174,15 +177,14 @@ public class UnitTest2
 
 ---
 
-
 # Select to test
 
-```{.csharp}
+```sh
 dotnet test --filter Area=1
 
 ```
 
-```{.csharp}
+```csharp
 [Trait("Area", "1")]
 public class UnitTest1
 {
@@ -203,6 +205,7 @@ public class UnitTest2
         Console.WriteLine("TEST2");
     }
 }
+
 ```
 
 ---
