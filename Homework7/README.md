@@ -54,7 +54,7 @@ _students = new List<Student>
     };
 ```
 
-# {.pagebreak}
+<p class="pagebreak" />
 
 ##  Equivalence partition 
 
@@ -113,7 +113,7 @@ invalid a-zA-Z0-9
 2. expected result: Exception System.FormatException
 3. test program's result: Exception System.FormatException 
 
-# {.pagebreak}
+<p class="pagebreak" />
 
 ### test case 5 
 

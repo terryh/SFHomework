@@ -46,7 +46,8 @@ _students = new List<Student>
         new Student("Mary", 77.0f, 25.0f),
     };
 ```
-# {.pagebreak}
+<p class="pagebreak" />
+
 
 ## Mutation testing coverage
 
@@ -96,7 +97,7 @@ return "";
 3. test program's result: "YES"
 4. mutation test program's result: "NO"
 
-# {.pagebreak}
+<p class="pagebreak" />
 
 ## 修改3
 ```{.cs .numberLines}
@@ -146,7 +147,7 @@ return "";
 3. test program's result: "NO"
 4. mutation test program's result: "NO"
 
-# {.pagebreak}
+<p class="pagebreak" />
 
 ## 修改5
 ```{.cs .numberLines}

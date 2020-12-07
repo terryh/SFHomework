@@ -54,7 +54,7 @@ _students = new List<Student>
     };
 ```
 
-# {.pagebreak}
+<p class="pagebreak" />
 
 ## Boundary value
 
@@ -177,7 +177,7 @@ for (var i = 1; i <= 501; i++)
 :::
 ::::
 
-# {.pagebreak}
+<p class="pagebreak" />
 
 ::::columns
 :::column
