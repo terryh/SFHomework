@@ -83,7 +83,7 @@ students = {
 2. expected result: "4094W011"
 3. test program's result: "4094W011"
 
-edge coverage:  [A B] [B C] [C D] [D F] [F B] [D E] [E D]
+edge coverage:  [A B] [B C] [C D] [D F] [F B] [D E] [E G]
 
 ### test case2 
 
