@@ -20,3 +20,10 @@ test:
 		dotnet test; \
 		cd .. ; \
 	done 
+
+genhtml:
+	for workdir in $(homeworks) ; do \
+		cd `dirname $$workdir` ; \
+		pandoc -s -o readme.html README.md; \
+		cd .. ; \
+	done 

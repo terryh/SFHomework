@@ -138,3 +138,7 @@ invalid &gt;  12 charts
 1. input values: "imNumber1SuperHero"
 2. expected result: Exception System.FormatException 
 3. test program's result: Exception System.FormatException 
+
+## Test Result
+
+![test result](./testresult.png){width=100%}

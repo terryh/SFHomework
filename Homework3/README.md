@@ -99,3 +99,7 @@ students = {
 1. input values: "Hello 0002" , <List>Student 600 個
 2. expected result: Exception System.ArgumentException
 3. test program's result: Exception System.ArgumentException
+
+## Test Result
+
+![test result](./testresult.png){width=100%}

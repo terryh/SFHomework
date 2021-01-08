@@ -195,3 +195,10 @@ students = {
 3. test program's result: ""
 
 test path coverage: [A B C D F B H]
+
+
+<p class="pagebreak" />
+
+## Test Result
+
+![test result](./testresult.png){width=100%}
